@@ -7,13 +7,16 @@
     "test": "mocha",
     "linter": "eslint app/app.js",
     "babel-node": "babel-node --presets=/*a*/",
-    "start": "nodemon --exec 'npm run linter && babel-node --presets=es2015 -- app/app.js'"
+    "dev": "nodemon --exec 'npm run linter && babel-node --presets=es2015 -- && node app/app.js'",
+    "build": "babel app/app.js --presets=es2015 --out-file build/app.js",
+    "start": "node build/app.js"
   },
   "author": "Alfonso Ruiz (Wal-Mart Mexico) and Julio Jaramillo (Wal-Mart Mexico)",
   "license": "ISC",
   "dependencies": {
     "babel-preset-env": "^1.6.0",
     "express": "^4.15.4",
+    "node-env-file": "^0.1.8",
     "validatorjs": "^3.13.4"
   },
   "devDependencies": {
